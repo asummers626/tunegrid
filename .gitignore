@@ -1,0 +1,25 @@
+## .NET
+bin/
+obj/
+*.user
+.vs/
+*.received.*
+
+## WinUI / MSIX packaging
+AppPackages/
+BundleArtifacts/
+*.appx
+*.msix
+*.msixbundle
+
+## Rider / VS Code
+.idea/
+.vscode/
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Local secrets / test data
+*.local.json
+/data/
