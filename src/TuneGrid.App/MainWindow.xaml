@@ -1,0 +1,17 @@
+<Window
+    x:Class="TuneGrid.App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <NavigationView x:Name="RootNavigationView"
+                     IsBackButtonVisible="Collapsed"
+                     IsSettingsVisible="False"
+                     SelectionChanged="RootNavigationView_SelectionChanged">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Guide" Tag="Guide" Icon="{x:Null}" />
+            <NavigationViewItem Content="Playlists" Tag="PlaylistSetup" Icon="{x:Null}" />
+        </NavigationView.MenuItems>
+
+        <Frame x:Name="ContentFrame" />
+    </NavigationView>
+</Window>

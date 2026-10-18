@@ -1,0 +1,39 @@
+<Page
+    x:Class="TuneGrid.App.Views.PlaylistSetupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Padding="24">
+        <StackPanel MaxWidth="480" Spacing="12">
+
+            <TextBlock Text="Add a playlist" Style="{StaticResource TitleTextBlockStyle}" />
+
+            <ComboBox x:Name="ModeCombo" Header="Source"
+                      SelectedIndex="0" SelectionChanged="ModeCombo_SelectionChanged">
+                <ComboBoxItem Content="M3U URL" />
+                <ComboBoxItem Content="Xtream Codes" />
+            </ComboBox>
+
+            <TextBox x:Name="PlaylistNameBox" Header="Playlist name" PlaceholderText="My Provider" />
+
+            <StackPanel x:Name="M3uPanel" Spacing="12">
+                <TextBox x:Name="M3uUrlBox" Header="Playlist URL (.m3u / .m3u8)"
+                         PlaceholderText="https://provider.example/get.php?..." />
+            </StackPanel>
+
+            <StackPanel x:Name="XtreamPanel" Spacing="12" Visibility="Collapsed">
+                <TextBox x:Name="XtreamServerBox" Header="Server URL" PlaceholderText="http://provider.example:8080" />
+                <TextBox x:Name="XtreamUsernameBox" Header="Username" />
+                <PasswordBox x:Name="XtreamPasswordBox" Header="Password" />
+            </StackPanel>
+
+            <Button x:Name="SaveButton" Content="Save" Click="SaveButton_Click"
+                    Style="{StaticResource AccentButtonStyle}" />
+
+            <ProgressRing x:Name="LoadingRing" IsActive="False" HorizontalAlignment="Left" />
+
+            <TextBlock x:Name="StatusText" TextWrapping="Wrap" />
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

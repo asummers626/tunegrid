@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-core:
+    name: Build & test TuneGrid.Core (cross-platform)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Restore
+        run: dotnet restore tests/TuneGrid.Core.Tests/TuneGrid.Core.Tests.csproj
+      - name: Build
+        run: dotnet build tests/TuneGrid.Core.Tests/TuneGrid.Core.Tests.csproj --no-restore -warnaserror
+      - name: Test
+        run: dotnet test tests/TuneGrid.Core.Tests/TuneGrid.Core.Tests.csproj --no-build
+
+  build-app:
+    name: Build TuneGrid.App (Windows/WinUI 3)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Restore
+        run: dotnet restore src/TuneGrid.App/TuneGrid.App.csproj
+      - name: Build
+        run: dotnet build src/TuneGrid.App/TuneGrid.App.csproj --no-restore -c Release

@@ -1,0 +1,21 @@
+<Page
+    x:Class="TuneGrid.App.Views.PlayerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:lvl="using:LibVLCSharp.Platforms.Windows">
+
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <lvl:VideoView x:Name="PlayerVideoView" Grid.Row="0" />
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="12" Padding="12" Background="#20000000">
+            <TextBlock x:Name="ChannelNameText" Foreground="White" VerticalAlignment="Center" />
+            <TextBlock x:Name="StateText" Foreground="Gray" VerticalAlignment="Center" />
+            <Button Content="Stop" Click="StopButton_Click" />
+        </StackPanel>
+    </Grid>
+</Page>
